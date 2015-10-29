@@ -1,0 +1,46 @@
+init
+animator 	-25 25  -2
+
+property 	deltat 			.00002
+property 	springk  		10000000
+property 	torquek  		500000
+property 	dampingconst  		-10.1
+property 	torquedampingconst  	-.05
+property 	connectoralpha 	 	1.5
+property	bungeedouble		360
+property    finaltime               2
+
+variable 	armLength   	20 21 .1
+variable 	slingLength 	 13  18 .1
+
+endinit
+
+anchor   		pivot 		0 2 0 0
+rotconnector 	armTip 		pivot 170 armLength 1.5
+//rotconnector 	armBack 	pivot 0 1.5 2
+rotconnector 	pumpkin 	armTip -15 slingLength .25
+anchor 			bungeeAnchor 	   	16 2.2 0 0
+anchor 			winchAnchor			-24 0.2 0 0	
+connector		knot				15 2.2 0 0 .1
+connector		w				-21 0.2 0 0 2
+
+shape 		arm
+			armTip
+			pivot
+endshape
+anchor leftGround -25 0 0 0
+anchor rightGround 25 0 0 0
+
+//anchor leftPlat -25 4 0 0
+//anchor rightPlat 25 4 0 0
+
+//rod leftGround pivot
+slider leftGround rightGround pumpkin
+//slider leftGround rightGround armTip
+sling 	pumpkin armTip
+rope w armTip 35
+rope w winchAnchor 4
+slider leftGround rightGround w
+bungee 	winchAnchor knot 10
+pulley 	armTip	bungeeAnchor knot
+gravity  32.2 

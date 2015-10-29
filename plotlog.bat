@@ -1,0 +1,1 @@
+wgnuplot logplot.txt

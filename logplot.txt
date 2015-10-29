@@ -1,0 +1,16 @@
+set contour
+set pm3d
+#unset pm3d
+show pm3d
+set multiplot
+
+#set hidden3d
+unset surface 
+set view 0,0,1.2
+set cntrparam levels incremental 500, 10,700
+splot 'log.txt' using 2:4:5 with lines 
+
+
+show contour
+unset multiplot
+pause -1

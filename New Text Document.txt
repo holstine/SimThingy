@@ -1,0 +1,9 @@
+set contour
+set pm3d
+show pm3d
+
+#set hidden3d
+set cntrparam levels incremental 200, 10
+splot 'log.txt' using 2:4:5 with pm3d, lines 
+show contour
+pause -1
